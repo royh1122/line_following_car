@@ -1,14 +1,3 @@
-/*
-  ELEC1100 Your Lab#06 & Project Template
-
-  To program the car tracking the white line on a dark mat
-
-  Group No. (number on your project box):9
-  Group Member 1 (name & SID):HUANG, I WEI 20824074
-  Group Member 2 (name & SID):CHI, TING HSUAN 20819744
-
-*/
-
 // assign meaningful names to those pins that will be used
 const int pinL_Sensor = A5;      //pin A5
 const int pinM_Sensor = A2;      //pin A2
@@ -89,7 +78,7 @@ void loop()
   }
   else if(stage==1)//forward
   {
-    if(!leftSensor && !rightSensor)// && leftSensor!=lastLeftSensor && rightSensor!=lastRightSensor)
+    if(!leftSensor && !rightSensor)
     {
         split = true;
         if(!midSensor && starting)
@@ -116,16 +105,6 @@ void loop()
           digitalWrite(pinL_DIR, HIGH);
           digitalWrite(pinR_DIR, LOW); 
           delay(200);
-        }
-        else if(splitCount>=4)
-        {
-          /*
-          analogWrite(pinL_PWM, wheelSpeed-90);
-          analogWrite(pinR_PWM, wheelSpeed-100);
-          digitalWrite(pinL_DIR, HIGH);
-          digitalWrite(pinR_DIR, HIGH);
-          */
-          
         }
     }
        
@@ -180,64 +159,5 @@ void loop()
     digitalWrite(pinL_DIR, LOW);
     digitalWrite(pinR_DIR, LOW);
     delay(50000);
-  /*    
-    if(!leftSensor && !rightSensor)
-    {
-        //split = true;
-        if(splitCount == 0 || splitCount==1)
-        {
-          analogWrite(pinL_PWM, 100);
-          analogWrite(pinR_PWM, 100);
-          digitalWrite(pinL_DIR, LOW);
-          digitalWrite(pinR_DIR, LOW);  
-        /*}
-        else if(splitCount==2)
-        {
-          analogWrite(pinL_PWM, 200);
-          analogWrite(pinR_PWM, 200);
-          digitalWrite(pinL_DIR, HIGH);
-          digitalWrite(pinR_DIR, LOW); 
-        }           
-    }
-       
-    if(!leftSensor && rightSensor)
-    {
-        analogWrite(pinL_PWM, 100);
-        analogWrite(pinR_PWM, 100);
-        digitalWrite(pinL_DIR, HIGH);
-        digitalWrite(pinR_DIR, LOW);
-        //split = false;
-        
-    }
-    
-    if(leftSensor && !rightSensor)
-    {
-        analogWrite(pinL_PWM, 100);
-        analogWrite(pinR_PWM, 100);
-        digitalWrite(pinL_DIR, LOW);
-        digitalWrite(pinR_DIR, HIGH);
-        if(!midSensor)
-        {
-          analogWrite(pinL_PWM, 0);
-          analogWrite(pinR_PWM, 0);
-          digitalWrite(pinL_DIR, LOW);
-          digitalWrite(pinR_DIR, LOW);
-          delay(5000);
-          //stage+=1;
-        }
-        //split = false;
-    }
-    
-    if(leftSensor && rightSensor)
-    {
-        analogWrite(pinL_PWM, 100);
-        analogWrite(pinR_PWM, 100);
-        digitalWrite(pinL_DIR, LOW);
-        digitalWrite(pinR_DIR, LOW);
-        //split = false;
-    }*/
   }
-  
 }
-  
-  
